@@ -37,11 +37,6 @@ class Signup extends Component {
     }
     // this.signup = this.signup.bind(this);
   }
-
-  // static navigationOptions = {
-  //   title: "App"
-  // };
-  // console.log();
   signup = () => {
     let user = {
       name: this.state.name,
@@ -70,8 +65,6 @@ class Signup extends Component {
     return (
       <View style={styles.container}>
         <ScrollView keyboardDismissMode='on-drag' contentContainerStyle={{ height: height / 1.035 }}>
-          {/* <ScrollView keyboardDismissMode='on-drag'> */}
-          {/* <View style={{ height }}> */}
           <View style={styles.imageDiv}>
             <View style={{ height: width / 2, width: width / 3 }}>
               <Image
@@ -134,7 +127,7 @@ class Signup extends Component {
               </View>
             </View>
 
-            <View style={styles.button}>
+            <View>
               <Button style={styles.buttonSignUp} title="Press Me" full info onPress={() => this.signup()}>
                 <Text style={styles.buttonFont}>Register</Text>
               </Button>
@@ -152,11 +145,9 @@ class Signup extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    // flex: 1,
     backgroundColor: '#F7F8F9',
   },
   imageDiv: {
-    // flex: 1,
     alignItems: 'center',
     justifyContent: "center",
     paddingTop: "5%",
@@ -170,8 +161,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: "center",
     borderRadius: 10,
-    // borderTopRightRadius: 10,
-    // borderTopLeftRadius: 10,
+    zIndex: 5,
+    elevation:5,
   },
   input2: {
     marginTop: '3%',
@@ -181,9 +172,9 @@ const styles = StyleSheet.create({
     width: width / 1.3,
     flexDirection: 'row',
     alignItems: "center",
-    // borderTopWidth: 0.5,
     borderRadius: 10,
-    // borderColor: 'grey'
+    zIndex: 5,
+    elevation:5,
   },
   buttonFont: {
     fontSize: fontScale * 28,
@@ -194,32 +185,19 @@ const styles = StyleSheet.create({
     width: width / 1.9,
     height: width / 7.4,
     backgroundColor: "#3963FB",
+    // backgroundColor: 'red',
     borderRadius: 12,
-    // borderWidth: 1,
-    zIndex: 20,
-    elevation: 20,
-    shadowColor: 'blue',
-    shadowOffset: { width: 35, height: 35 },
-    shadowOpacity: 9,
-    shadowRadius: 2,
-  },
-  button: {
-    // borderWidth: 1,
-    // borderRadius: 2,
-    // borderColor: '#ddd',
-    // borderBottomWidth: 0,
-    // elevation: 1,
-    // marginLeft: 5,
-    // marginRight: 5,
-    // marginTop: 10,
+    zIndex: 15,
+    elevation:15,
+    // shadowOffset: { width: 35, height: 35 },
+    // shadowOpacity: 9,
+    // shadowRadius: 2,
   },
   mainCenter: {
-    // flex: 1,
     alignItems: "center",
     width,
     height: width / 1.4,
-    // backgroundColor: "blue"
-    // marginBottom: '10%'
+
   }
 });
 
