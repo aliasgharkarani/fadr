@@ -9,6 +9,7 @@ import {
   Dimensions,
   ScrollView,
   TextInput,
+  ImageBackground
 } from 'react-native';
 // import { CheckBox } from 'react-native-elements';
 import { Button, CheckBox, ListItem } from "native-base";
@@ -54,7 +55,7 @@ class Signup extends Component {
         // alert("nbhfbh")
         // alert(this.state.password)
       }).catch(
-      (Error) => { alert(Error.message) }
+        (Error) => { alert(Error.message) }
       )
     // alert("cbvbvb");
     // alert();
@@ -64,80 +65,92 @@ class Signup extends Component {
     // height: Platform.OS === 'ios' ? 200 : 100
     return (
       <View style={styles.container}>
-        <ScrollView keyboardDismissMode='on-drag' contentContainerStyle={{ height:Platform.OS === 'ios'? height: height/ 1.035 }}>
-          <View style={styles.imageDiv}>
-            <View style={{ height: width / 2, width: width / 3 }}>
-              <Image
-                style={{ width: '100%', height: '100%' }}
-                resizeMode="contain"
-                source={require('../../assets/logo.png')}
-              /></View>
+        <ImageBackground source={require('../../assets/signinlogo.jpeg')} style={{ width: '100%', height: '100%', }}  >
+          <View style={{ backgroundColor: 'rgba(255,255,255,0.5)' }}>
+            <ScrollView keyboardDismissMode='on-drag' contentContainerStyle={{ height: Platform.OS === 'ios' ? height : height / 1.035, opacity: 1 }}>
+              <View style={styles.imageDiv}>
+                <View style={{ height: width / 2, width: width / 3, opacity: 1 }}>
+                  <Image
+                    style={{ width: '100%', height: '100%' }}
+                    resizeMode="contain"
+                    source={require('../../assets/logo.png')}
+                  /></View>
+              </View>
+
+              <View style={styles.mainCenter}>
+                <View style={styles.input1}>
+                  <View style={{ justifyContent: "center", height: width / 15, width: width / 20 }}>
+                    <Image
+                      source={require('../../assets/name.png')}
+                      style={{ width: '100%', height: '100%' }}
+                      resizeMode='contain'
+                    />
+                  </View>
+                  <TextInput
+                    underlineColorAndroid="white"
+                    style={{ height: width / 10, color: 'rgb(180,180,180)', width: "90%", borderColor: "white", fontSize: fontScale * 20, paddingRight: "2%", paddingLeft: "2%" }}
+                    onChangeText={(name) => this.setState({ name })}
+                    value={this.state.name}
+                    placeholder="Username"
+                    placeholderTextColor="#CFCFD0"
+                    autoCapitalize='none'
+                  />
+                </View>
+                <View style={styles.input1}>
+                  <View style={{ justifyContent: "center", height: width / 18, width: width / 20 }}>
+                    <Image
+                      source={require('../../assets/mail.png')}
+                      style={{ width: '100%', height: '100%' }}
+                      resizeMode='contain'
+                    />
+                  </View>
+                  <TextInput
+                    underlineColorAndroid="white"
+                    style={{ height: width / 10, color: 'rgb(180,180,180)', width: "90%", borderColor: "white", fontSize: fontScale * 20, paddingRight: "2%", paddingLeft: "2%" }}
+                    onChangeText={(email) => this.setState({ email })}
+                    value={this.state.email}
+                    placeholder="Email"
+                    placeholderTextColor="#CFCFD0"
+                    autoCapitalize='none'
+                  />
+                </View>
+                <View style={styles.input2}>
+                  <View style={{ justifyContent: "center", height: width / 18, width: width / 20 }}>
+                    <Image
+                      source={require('../../assets/lock.png')}
+                      style={{ width: '100%', height: '100%' }}
+                      resizeMode='contain'
+                    />
+                  </View>
+                  <TextInput
+                    secureTextEntry={true}
+                    underlineColorAndroid="white"
+                    style={{ height: width / 10, color: 'rgb(180,180,180)', width: "80%", borderColor: "white", fontSize: fontScale * 20, paddingRight: "2%", paddingLeft: "2%" }}
+                    onChangeText={(password) => this.setState({ password })}
+                    value={this.state.password}
+                    placeholder="Password"
+                    placeholderTextColor="#CFCFD0"
+                    autoCapitalize='none'
+                  />
+                  <View style={{ justifyContent: "center" }}>
+                    <Image
+                      source={require('../../assets/eye.png')} resizeMode="contain" style={{ width: width / 15, height: width / 18 }} />
+                  </View>
+                </View>
+
+                <View>
+                  <Button style={styles.buttonSignUp} title="Press Me" full info onPress={() => this.signup()}>
+                    <Text style={styles.buttonFont}>Register</Text>
+                  </Button>
+                </View>
+              </View>
+
+              <View style={{ justifyContent: "flex-end", height: width / 2.7 }}>
+                <Text style={{ textAlign: 'center', color: "black", fontSize: fontScale * 15 }}>Already have an account? <Text style={{ color: 'blue', fontSize: fontScale * 18, fontWeight: 'bold' }} onPress={() => { this.props.navigation.navigate("Signin") }} >Login</Text></Text>
+              </View>
+            </ScrollView>
           </View>
-
-          <View style={styles.mainCenter}>
-            <View style={styles.input1}>
-              <View style={{ justifyContent: "center", height: width / 15, width: width / 15 }}>
-                <Image
-                  source={require('../../assets/name.png')} />
-              </View>
-              <TextInput
-                underlineColorAndroid="white"
-                style={{ height: width / 10, width: "90%", borderColor: "white", fontSize: fontScale * 20, paddingRight: "2%", paddingLeft: "2%" }}
-                onChangeText={(name) => this.setState({ name })}
-                value={this.state.name}
-                placeholder="Username"
-                placeholderTextColor="#CFCFD0"
-                autoCapitalize='none'
-              />
-            </View>
-            <View style={styles.input1}>
-
-              <View style={{ justifyContent: "center", height: width / 15, width: width / 15 }}>
-                <Image
-                  source={require('../../assets/mail.png')} />
-              </View>
-              <TextInput
-                underlineColorAndroid="white"
-                style={{ height: width / 10, width: "90%", borderColor: "white", fontSize: fontScale * 20, paddingRight: "2%", paddingLeft: "2%" }}
-                onChangeText={(email) => this.setState({ email })}
-                value={this.state.email}
-                placeholder="Email"
-                placeholderTextColor="#CFCFD0"
-                autoCapitalize='none'
-              />
-            </View>
-            <View style={styles.input2}>
-              <View style={{ justifyContent: "center", height: width / 15, width: width / 15 }}>
-                <Image
-                  source={require('../../assets/lock.png')} />
-              </View>
-              <TextInput
-                secureTextEntry={true}
-                underlineColorAndroid="white"
-                style={{ height: width / 10, width: "80%", borderColor: "white", fontSize: fontScale * 20, paddingRight: "2%", paddingLeft: "2%" }}
-                onChangeText={(password) => this.setState({ password })}
-                value={this.state.password}
-                placeholder="Password"
-                placeholderTextColor="#CFCFD0"
-                autoCapitalize='none'
-              />
-              <View style={{ justifyContent: "center" }}>
-                <Image
-                  source={require('../../assets/eye.png')} resizeMode="contain" style={{ width: width / 15,height:width/18 }} />
-              </View>
-            </View>
-
-            <View>
-              <Button style={styles.buttonSignUp} title="Press Me" full info onPress={() => this.signup()}>
-                <Text style={styles.buttonFont}>Register</Text>
-              </Button>
-            </View>
-          </View>
-
-          <View style={{ justifyContent: "flex-end", height: width / 2.7 }}>
-            <Text style={{ textAlign: 'center', color: "black", fontSize: fontScale * 15 }}>Already have an account? <Text style={{ color: 'blue', fontSize: fontScale * 18, fontWeight: 'bold' }} onPress={() => { this.props.navigation.navigate("Signin") }} >Login</Text></Text>
-          </View>
-        </ScrollView>
+        </ImageBackground>
       </View>
     );
   }
@@ -146,13 +159,11 @@ class Signup extends Component {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#F7F8F9',
-    // backgroundColor:'red'
   },
   imageDiv: {
     alignItems: 'center',
     justifyContent: "center",
     paddingTop: "5%",
-    // backgroundColor: "#F7F8F9"
   },
   input1: {
     marginTop: '3%',
@@ -163,7 +174,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderRadius: 10,
     zIndex: 5,
-    elevation:5,
+    elevation: 5,
     shadowOffset: { width: 2, height: 2 },
     shadowOpacity: 0.6,
     shadowRadius: 2,
@@ -178,7 +189,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderRadius: 10,
     zIndex: 5,
-    elevation:5,
+    elevation: 5,
     shadowOffset: { width: 2, height: 2 },
     shadowOpacity: 0.6,
     shadowRadius: 2,
@@ -194,7 +205,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#3963FB",
     borderRadius: 12,
     zIndex: 15,
-    elevation:15,
+    elevation: 15,
     shadowOffset: { width: 5, height: 5 },
     shadowOpacity: 0.6,
     shadowRadius: 2,

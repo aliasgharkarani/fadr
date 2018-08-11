@@ -1,5 +1,4 @@
 import React from 'react'
-
 // import {
 //   App,
 //   Signup
@@ -29,6 +28,7 @@ const NavigationApp = StackNavigator({
     screen: Main,
     navigationOptions: {
       header: null,
+      gesturesEnabled: false,
     }
   },
   Orders: {

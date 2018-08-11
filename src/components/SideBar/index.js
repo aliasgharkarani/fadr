@@ -126,21 +126,13 @@ class SideBar extends React.Component {
         });
     }
 
-    // ComponentWillMount(){
-    //     alert("mount");
-    // }
     render() {
-        // closeDrawer = () => {
-        //     this.drawer._root.close()
-        // };
         return (
             <View style={styles.container}>
                 <View style={{ height: width / 4, backgroundColor: "#9f80d3", flexDirection: "row" }}>
-                    <TouchableOpacity activeOpacity={1} onPress={() => this.start()} style={{ width: width / 5, height: width / 5, alignSelf: "center", marginLeft: "5%", borderRadius: 100, overflow: "hidden", backgroundColor: "rgb(180,180,180)" }}>
+                    <TouchableOpacity activeOpacity={1} onPress={() => this.start()} style={{ height: width / 5, alignSelf: "center", marginLeft: "5%", borderRadius: 100, overflow: "hidden", backgroundColor: "rgb(180,180,180)" }}>
                         <Image
                             onPress={() => this.start()}
-                            /* resizeMode="contain"  */
-                            /* source={require("../../assets/defaultuser.png")}*/
                             source={{ uri: this.state.avatarSource }}
                             style={{ height: width / 5, width: width / 5 }}
                         />
@@ -154,24 +146,32 @@ class SideBar extends React.Component {
                     </View>
                     <Text style={{ color: "red", alignSelf: "center", fontSize: fontScale * 25, marginLeft: "5%" }}>Home</Text>
                 </TouchableOpacity>
-           
-                <TouchableOpacity activeOpacity={1} style={{height: width / 4, borderBottomColor: "blue", borderBottomWidth: 1, borderBottomColor: "blue", borderBottomWidth: 1, backgroundColor: "rgb(180,180,180)", flexDirection: "row" }} onPress={() => { this.state.accountType == "user" ? this.props.navigation.navigate("Orders") : this.props.navigation.navigate("Addproducts") }} >
+
+                <TouchableOpacity activeOpacity={1} style={{ height: width / 4, borderBottomColor: "blue", borderBottomColor: "blue", borderBottomWidth: 1, backgroundColor: "rgb(180,180,180)", flexDirection: "row" }} onPress={() => { this.state.accountType == "user" ? this.props.navigation.navigate("Orders") : this.props.navigation.navigate("Addproducts") }} >
                     <View style={{ alignSelf: "center", marginLeft: "5%" }}>
                         <Icon name="ios-basket" />
                     </View>
                     <Text style={{ color: "red", alignSelf: "center", fontSize: fontScale * 25, marginLeft: "5%" }}>{this.state.accountType == "user" ? "Orders" : "Add Products"}</Text>
                 </TouchableOpacity>
 
-                {this.state.accountType == "admin" ? <TouchableOpacity activeOpacity={1} style={{ width, height: width / 4, backgroundColor: "rgb(180,180,180)", flexDirection: "row" }} onPress={() => { this.props.navigation.navigate("Orders") }} >
+                {this.state.accountType == "admin" ? <TouchableOpacity activeOpacity={1} style={{ height: width / 4, backgroundColor: "rgb(180,180,180)", flexDirection: "row" }} onPress={() => { this.props.navigation.navigate("Orders") }} >
                     <View style={{ alignSelf: "center", marginLeft: "5%" }}>
                         <Icon name="ios-basket" />
                     </View>
                     <Text style={{ color: "red", alignSelf: "center", fontSize: fontScale * 25, marginLeft: "5%" }}>Products</Text>
                 </TouchableOpacity> : null}
-
-                <Text style={{ backgroundColor: "green", color: "white", textAlign: "center", fontSize: fontScale * 30, fontWeight: "bold", flex: 1 }} onPress={() => firebase.auth().signOut().then(s => {
-                    this.props.navigation.navigate("Signup")
-                })}>Logout</Text>
+                {/* <TouchableOpacity activeOpacity={1} style={{ height: width / 4,backgroundColor: "rgb(180,180,180)", flexDirection: "row" }} onPress={() => firebase.auth().signOut().then(s => { this.props.navigation.navigate("Signup") })} >
+                    <Text style={{ backgroundColor: "green", color: "white", textAlign: "center", fontSize: fontScale * 30, fontWeight: "bold" }} onPress={() => firebase.auth().signOut().then(s => {
+                        this.props.navigation.navigate("Signup")
+                    })}>Logout</Text>
+                </TouchableOpacity> */}
+                <TouchableOpacity activeOpacity={1} style={{ height: width / 4, borderBottomColor: "blue", borderBottomColor: "blue", borderBottomWidth: 1, backgroundColor: "rgb(180,180,180)", flexDirection: "row" }} onPress={() => firebase.auth().signOut().then(s => {
+                    this.props.navigation.navigate("Signin") })} >
+                    <View style={{ alignSelf: "center", marginLeft: "5%" }}>
+                        <Icon name="ios-basket" />
+                    </View>
+                    <Text style={{ color:'blue', alignSelf: "center", fontSize: fontScale * 25, marginLeft: "5%" }} >Logout</Text>
+                </TouchableOpacity>
             </View>
         );
     }
@@ -179,9 +179,9 @@ class SideBar extends React.Component {
 }
 const styles = StyleSheet.create({
     container: {
-        // flex: 1,
         backgroundColor: 'rgb(180,180,180)',
-          width:width/4,
+        width: width / 1.3,
+        height,
     },
     textContent: {
         fontSize: 20,
