@@ -130,6 +130,7 @@ class Main extends Component {
         navigation={this.props.navigation}
         ref={(ref) => { this.drawer = ref; }}
         content={<SideBar navigator={this.navigator} navigation={this.props.navigation} onclose={this.closeDrawer} />}
+        panOpenMask={50}
         onClose={() => this.closeDrawer()} >
 
         {Platform.OS === 'ios' ? <View style={{ height: "2.5%", backgroundColor: "#9f80d3" }}> </View> : null}
@@ -141,7 +142,6 @@ class Main extends Component {
             </View>
           </TouchableOpacity>
 
-          {/* Drawer */}
 
           <View style={{ width: "60%", margin: 3, alignItems: "center" }}>
             <View style={styles.inputs1}>

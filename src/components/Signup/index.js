@@ -61,10 +61,10 @@ class Signup extends Component {
   }
   render() {
     const { navigate } = this.props.navigation;
-
+    // height: Platform.OS === 'ios' ? 200 : 100
     return (
       <View style={styles.container}>
-        <ScrollView keyboardDismissMode='on-drag' contentContainerStyle={{ height: height / 1.035 }}>
+        <ScrollView keyboardDismissMode='on-drag' contentContainerStyle={{ height:Platform.OS === 'ios'? height: height/ 1.035 }}>
           <View style={styles.imageDiv}>
             <View style={{ height: width / 2, width: width / 3 }}>
               <Image
@@ -123,7 +123,7 @@ class Signup extends Component {
               />
               <View style={{ justifyContent: "center" }}>
                 <Image
-                  source={require('../../assets/eye.png')} resizeMode="contain" style={{ width: width / 15 }} />
+                  source={require('../../assets/eye.png')} resizeMode="contain" style={{ width: width / 15,height:width/18 }} />
               </View>
             </View>
 
@@ -146,12 +146,13 @@ class Signup extends Component {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#F7F8F9',
+    // backgroundColor:'red'
   },
   imageDiv: {
     alignItems: 'center',
     justifyContent: "center",
     paddingTop: "5%",
-    backgroundColor: "#F7F8F9"
+    // backgroundColor: "#F7F8F9"
   },
   input1: {
     marginTop: '3%',
@@ -163,6 +164,9 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     zIndex: 5,
     elevation:5,
+    shadowOffset: { width: 2, height: 2 },
+    shadowOpacity: 0.6,
+    shadowRadius: 2,
   },
   input2: {
     marginTop: '3%',
@@ -175,6 +179,9 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     zIndex: 5,
     elevation:5,
+    shadowOffset: { width: 2, height: 2 },
+    shadowOpacity: 0.6,
+    shadowRadius: 2,
   },
   buttonFont: {
     fontSize: fontScale * 28,
@@ -185,13 +192,13 @@ const styles = StyleSheet.create({
     width: width / 1.9,
     height: width / 7.4,
     backgroundColor: "#3963FB",
-    // backgroundColor: 'red',
     borderRadius: 12,
     zIndex: 15,
     elevation:15,
-    // shadowOffset: { width: 35, height: 35 },
-    // shadowOpacity: 9,
-    // shadowRadius: 2,
+    shadowOffset: { width: 5, height: 5 },
+    shadowOpacity: 0.6,
+    shadowRadius: 2,
+    shadowColor: 'blue',
   },
   mainCenter: {
     alignItems: "center",

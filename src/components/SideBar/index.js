@@ -135,7 +135,7 @@ class SideBar extends React.Component {
         // };
         return (
             <View style={styles.container}>
-                <View style={{ width, height: width / 4, backgroundColor: "#9f80d3", flexDirection: "row" }}>
+                <View style={{ height: width / 4, backgroundColor: "#9f80d3", flexDirection: "row" }}>
                     <TouchableOpacity activeOpacity={1} onPress={() => this.start()} style={{ width: width / 5, height: width / 5, alignSelf: "center", marginLeft: "5%", borderRadius: 100, overflow: "hidden", backgroundColor: "rgb(180,180,180)" }}>
                         <Image
                             onPress={() => this.start()}
@@ -148,16 +148,14 @@ class SideBar extends React.Component {
                     <Text style={{ color: "blue", alignSelf: "center", fontSize: fontScale * 25, marginLeft: "5%" }}>{this.state.username}</Text>
                 </View>
 
-                <TouchableOpacity activeOpacity={1} style={{ width, height: width / 4, borderBottomColor: "blue", borderBottomWidth: 1, backgroundColor: "rgb(180,180,180)", flexDirection: "row" }} onPress={() => { this.props.onclose() }} >
+                <TouchableOpacity activeOpacity={1} style={{ height: width / 4, borderBottomColor: "blue", borderBottomWidth: 1, backgroundColor: "rgb(180,180,180)", flexDirection: "row" }} onPress={() => { this.props.onclose() }} >
                     <View style={{ alignSelf: "center", marginLeft: "5%" }}>
                         <Icon name="ios-home" />
                     </View>
                     <Text style={{ color: "red", alignSelf: "center", fontSize: fontScale * 25, marginLeft: "5%" }}>Home</Text>
                 </TouchableOpacity>
-                {/* firebase.database().ref(`user/${firebase.auth().currentUser.uid}`).update({imagelink}) */}
-
-                {/* { firebase.database().ref(`user/${firebase.auth().currentUser.uid}`).once} */}
-                <TouchableOpacity activeOpacity={1} style={{ width, height: width / 4, borderBottomColor: "blue", borderBottomWidth: 1, borderBottomColor: "blue", borderBottomWidth: 1, backgroundColor: "rgb(180,180,180)", flexDirection: "row" }} onPress={() => { this.state.accountType == "user" ? this.props.navigation.navigate("Orders") : this.props.navigation.navigate("Addproducts") }} >
+           
+                <TouchableOpacity activeOpacity={1} style={{height: width / 4, borderBottomColor: "blue", borderBottomWidth: 1, borderBottomColor: "blue", borderBottomWidth: 1, backgroundColor: "rgb(180,180,180)", flexDirection: "row" }} onPress={() => { this.state.accountType == "user" ? this.props.navigation.navigate("Orders") : this.props.navigation.navigate("Addproducts") }} >
                     <View style={{ alignSelf: "center", marginLeft: "5%" }}>
                         <Icon name="ios-basket" />
                     </View>
@@ -181,9 +179,9 @@ class SideBar extends React.Component {
 }
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        backgroundColor: 'green',
-        //   width:width/4,
+        // flex: 1,
+        backgroundColor: 'rgb(180,180,180)',
+          width:width/4,
     },
     textContent: {
         fontSize: 20,
