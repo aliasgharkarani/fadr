@@ -92,7 +92,7 @@ class Signin extends Component {
     //   email: this.state.email2
     // }
     // firebase.auth().sendPasswordResetEmail('aakproductionpk@gmail.com').then(function () {
-    firebase.auth().sendPasswordResetEmail(this.state.email2).then(function () {
+    firebase.auth().sendPasswordResetEmail(this.state.email2).then(function () {      
       // Email sent.
       alert("Email sent");
       // alert(usern.email)
@@ -111,7 +111,7 @@ class Signin extends Component {
           <View style={styles.container}>
             <ImageBackground source={require('../../assets/signinlogo.jpeg')} style={{ width: '100%', height: '100%', }}  >
               <View style={{ backgroundColor: 'rgba(255,255,255,0.5)' }}>
-                <ScrollView keyboardDismissMode='on-drag' contentContainerStyle={{ height: Platform.OS === 'ios' ? height : height / 1.035 }}>
+                <ScrollView  contentContainerStyle={{ height: Platform.OS === 'ios' ? height : height }}>
                   <View style={styles.imageDiv}>
                     <View style={{ height: width / 1.8, width: width / 3 }}>
                       <Image
@@ -131,7 +131,7 @@ class Signin extends Component {
                       </View>
                       <TextInput
                         underlineColorAndroid="white"
-                        style={{ height: width / 10, width: "90%", borderColor: "white", color: 'rgb(180,180,180)', fontSize: fontScale * 20, paddingRight: "2%", paddingLeft: "2%" }}
+                        style={{ height:Platform.OS === 'ios' ? width/10 : width /8, width: "90%", borderColor: "white", color: 'rgb(180,180,180)', fontSize: fontScale * 20, paddingRight: "2%", paddingLeft: "2%" }}
                         onChangeText={(email) => this.setState({ email })}
                         value={this.state.email}
                         placeholder="Email"
@@ -150,7 +150,7 @@ class Signin extends Component {
                       <TextInput
                         secureTextEntry={true}
                         underlineColorAndroid="white"
-                        style={{ height: width / 10, width: "80%", color: 'rgb(180,180,180)', borderColor: "white", fontSize: fontScale * 20, paddingRight: "2%", paddingLeft: "2%" }}
+                        style={{ height:Platform.OS === 'ios' ? width/10 : width /8, width: "80%", color: 'rgb(180,180,180)', borderColor: "white", fontSize: fontScale * 20, paddingRight: "2%", paddingLeft: "2%" }}
                         onChangeText={(password) => this.setState({ password })}
                         value={this.state.password}
                         placeholder="Password"
@@ -181,7 +181,7 @@ class Signin extends Component {
           <View style={styles.container}>
             <ImageBackground source={require('../../assets/signinlogo.jpeg')} style={{ width: '100%', height: '100%', }}  >
               <View style={{ backgroundColor: 'rgba(255,255,255,0.5)' }}>
-                <ScrollView keyboardDismissMode='on-drag' contentContainerStyle={{ height: Platform.OS === 'ios' ? height : height / 1.035 }}>
+                <ScrollView contentContainerStyle={{ height: Platform.OS === 'ios' ? height : height }}>
                   <View style={styles.imageDiv1}>
                     <View style={{ height: width / 1.8, width: width / 3 }}>
                       <Image
@@ -192,8 +192,8 @@ class Signin extends Component {
                   </View>
 
                   <View style={styles.mainCenter}>
-                    <View><Text style={{ color: 'black', fontSize: fontScale * 32, fontWeight: 'bold' }}>Forgot Password ?</Text></View>
-                    <View style={{ marginBottom: '5%' }}><Text style={{ color: "#ffffff", fontSize: fontScale * 17 }}>Please insert your email address so we can{"\n"} send you a reset email link</Text></View>
+                    <View><Text style={{ color: 'black', fontSize: fontScale *27, fontWeight: 'bold' }}>Forgot Password ?</Text></View>
+                    <View style={{ marginBottom: '5%' }}><Text style={{ color: "grey", fontSize: fontScale * 14 }}>Please insert your email address so we can{"\n"} send you a reset email link</Text></View>
                     <View>
                       <View style={styles.input1}>
                         <View style={{ justifyContent: "center", height: width / 18, width: width / 20 }}>
@@ -205,7 +205,7 @@ class Signin extends Component {
                         </View>
                         <TextInput
                           underlineColorAndroid="white"
-                          style={{ height: width / 10, width: "90%", borderColor: "white", color: 'rgb(180,180,180)', fontSize: fontScale * 20, paddingRight: "2%", paddingLeft: "2%" }}
+                          style={{ height:Platform.OS === 'ios' ? width/10 : width /8, width: "90%", borderColor: "white", color: 'rgb(180,180,180)', fontSize: fontScale * 20, paddingRight: "2%", paddingLeft: "2%" }}
                           onChangeText={(email2) => this.setState({ email2 })}
                           value={this.state.email2}
                           placeholder="Email"
@@ -215,9 +215,10 @@ class Signin extends Component {
                       </View>
 
                       <View style={styles.button}>
-                        <Button style={styles.buttonSignUp} title="Press Me" full info onPress={() => this.resetPassword()}>
-                          {/* <Button style={styles.buttonSignUp} title="Press Me" full info onPress={() => alert(this.state.email2)}> */}
-
+                         <Button style={styles.buttonSignUp} title="Press Me" full info onPress={() => this.resetPassword()}>
+                        
+                        {/* <Button style={styles.buttonSignUp} title="Press Me" full info onPress={() => alert(this.state.email2)}> */}
+                          
                           <Text style={styles.buttonFont}>SEND</Text>
                         </Button>
                       </View>

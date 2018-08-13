@@ -67,7 +67,7 @@ class Signup extends Component {
       <View style={styles.container}>
         <ImageBackground source={require('../../assets/signinlogo.jpeg')} style={{ width: '100%', height: '100%', }}  >
           <View style={{ backgroundColor: 'rgba(255,255,255,0.5)' }}>
-            <ScrollView keyboardDismissMode='on-drag' contentContainerStyle={{ height: Platform.OS === 'ios' ? height : height / 1.035, opacity: 1 }}>
+            <ScrollView  contentContainerStyle={{ height: Platform.OS === 'ios' ? height : height, opacity: 1 }}>
               <View style={styles.imageDiv}>
                 <View style={{ height: width / 2, width: width / 3, opacity: 1 }}>
                   <Image
@@ -88,7 +88,7 @@ class Signup extends Component {
                   </View>
                   <TextInput
                     underlineColorAndroid="white"
-                    style={{ height: width / 10, color: 'rgb(180,180,180)', width: "90%", borderColor: "white", fontSize: fontScale * 20, paddingRight: "2%", paddingLeft: "2%" }}
+                    style={{ height:Platform.OS === 'ios' ? width / 10:width /8, color: 'rgb(180,180,180)', width: "90%",borderColor: "white", fontSize: fontScale * 20, paddingRight: "2%", paddingLeft: "2%" }}
                     onChangeText={(name) => this.setState({ name })}
                     value={this.state.name}
                     placeholder="Username"
@@ -106,7 +106,7 @@ class Signup extends Component {
                   </View>
                   <TextInput
                     underlineColorAndroid="white"
-                    style={{ height: width / 10, color: 'rgb(180,180,180)', width: "90%", borderColor: "white", fontSize: fontScale * 20, paddingRight: "2%", paddingLeft: "2%" }}
+                    style={{ height:Platform.OS === 'ios' ? width / 10:width /8, color: 'rgb(180,180,180)', width: "90%", borderColor: "white", fontSize: fontScale * 20, paddingRight: "2%", paddingLeft: "2%" }}
                     onChangeText={(email) => this.setState({ email })}
                     value={this.state.email}
                     placeholder="Email"
@@ -125,7 +125,7 @@ class Signup extends Component {
                   <TextInput
                     secureTextEntry={true}
                     underlineColorAndroid="white"
-                    style={{ height: width / 10, color: 'rgb(180,180,180)', width: "80%", borderColor: "white", fontSize: fontScale * 20, paddingRight: "2%", paddingLeft: "2%" }}
+                    style={{ height:Platform.OS === 'ios' ? width / 10:width /8, color: 'rgb(180,180,180)', width: "80%", borderColor: "white", fontSize: fontScale * 20, paddingRight: "2%", paddingLeft: "2%" }}
                     onChangeText={(password) => this.setState({ password })}
                     value={this.state.password}
                     placeholder="Password"
